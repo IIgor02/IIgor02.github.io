@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Academic website of Pedro Igor Oliveira, M.A. student in Economics at CAEN/UFC. Research in Econometrics, Poverty and Inequality, and Development Economics." />
+  <title>Pedro Igor Oliveira</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --paper: #ffffff;
+      --ink: #1f2933;
+      --muted: #667085;
+      --line: #ddd8ce;
+      --accent: #25364f;
+      --accent-soft: #eef1f6;
+      --tag: #f2efe8;
+      --max: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+      font-size: 17px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(37, 54, 79, 0.25);
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 54px 0 34px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      margin: 0 0 10px;
+      letter-spacing: -0.035em;
+      color: #111827;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 4px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.76);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .pill a {
+      border: 0;
+    }
+
+    nav {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    nav a {
+      color: var(--muted);
+      border: 0;
+      padding-bottom: 3px;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      padding: 38px 0 60px;
+    }
+
+    section {
+      margin: 0 0 42px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      color: #111827;
+      font-size: 1.08rem;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .about-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 18px 40px rgba(16, 24, 40, 0.04);
+    }
+
+    .about-card p {
+      margin: 0 0 14px;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .fields {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .field {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid #d9deea;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .paper-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .paper {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px 24px;
+      box-shadow: 0 14px 34px rgba(16, 24, 40, 0.035);
+    }
+
+    .paper h3 {
+      margin: 0 0 8px;
+      font-size: 1.22rem;
+      line-height: 1.28;
+      color: #111827;
+      letter-spacing: -0.01em;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 12px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--tag);
+      border: 1px solid #e1d9ca;
+      color: #60584d;
+    }
+
+    .paper p {
+      margin: 0;
+      color: #344054;
+    }
+
+    .note {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0 38px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 780px) {
+      .topline {
+        display: block;
+      }
+
+      .contact {
+        justify-content: flex-start;
+        margin-top: 20px;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .paper {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topline">
+        <div>
+          <h1>Pedro Igor Oliveira</h1>
+          <p class="subtitle">M.A. Student in Economics, CAEN/UFC</p>
+          <p class="subtitle">Econometrics · Poverty and Inequality · Development Economics</p>
+        </div>
+        <div class="contact" aria-label="Contact links">
+          <span class="pill"><a href="mailto:pedro_oliveira@caen.ufc.br">pedro_oliveira@caen.ufc.br</a></span>
+          <span class="pill"><a href="https://orcid.org/0009-0007-6610-9390" target="_blank" rel="noopener">ORCID: 0009-0007-6610-9390</a></span>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#selected">Selected Research</a>
+        <a href="#other">Other Research</a>
+        <a href="#wip">Work in Progress</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="about">
+      <div class="section-head">
+        <h2>About</h2>
+        <p class="section-intro">Research profile and fields.</p>
+      </div>
+      <div class="about-card">
+        <p>
+          I am an M.A. student in Economics at CAEN/UFC. My research interests are in
+          <strong>Econometrics</strong>, <strong>Poverty and Inequality</strong>, and
+          <strong>Development Economics</strong>, with a focus on distributional methods,
+          policy evaluation, regional development, public finance, and macro-financial risk.
+        </p>
+        <p>
+          My current work combines methodological and applied research. On the econometric side,
+          I study panel-data methods for distributional objects, including weighted-average quantile
+          functionals and extreme panel quantiles under common shocks. On the applied side, I work
+          on poverty, inequality, credit, fiscal capacity, climate-policy targeting, food-price incidence,
+          and financial-stress measurement in Brazil.
+        </p>
+        <p>
+          I hold a B.A. in Economics from the Federal University of Ceará, where I graduated
+          <em>summa cum laude</em>. My research uses administrative data, survey microdata,
+          panel methods, shift-share designs, regression discontinuity, text-based measurement,
+          and forecasting tools to study policy-relevant questions in developing economies.
+        </p>
+
+        <div class="fields">
+          <span class="field">Econometrics</span>
+          <span class="field">Poverty and Inequality</span>
+          <span class="field">Development Economics</span>
+          <span class="field">Policy Evaluation</span>
+          <span class="field">Public Finance</span>
+          <span class="field">Regional Development</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="selected">
+      <div class="section-head">
+        <h2>Selected Research</h2>
+        <p class="section-intro">Papers under review or with external presentation acceptance.</p>
+      </div>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h3>Distributional Functionals in Fixed-Effects Panels: A Weighted-Average Quantile Approach</h3>
+          <div class="meta">
+            <span class="tag">Under Review</span>
+            <span class="tag">Econometrics</span>
+            <span class="tag">Panel Data</span>
+            <span class="tag">Quantile Methods</span>
+          </div>
+          <p>
+            Develops weighted-average quantile regression for fixed-effects panels when the target is an integrated
+            feature of the conditional distribution, such as expected shortfall, lower-tail welfare, inequality-sensitive
+            welfare, or distributional spread.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>Common-Shock-Robust Inference for Extreme Panel Quantiles</h3>
+          <div class="meta">
+            <span class="tag">Under Review</span>
+            <span class="tag">Econometrics</span>
+            <span class="tag">Extreme Quantiles</span>
+            <span class="tag">Common Shocks</span>
+          </div>
+          <p>
+            Proposes an inference framework for extrapolated extreme panel quantiles that accounts for synchronized
+            common shocks with heterogeneous exposure across units, with an empirical illustration using food-inflation risk.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>Text-Based Financial Stress and Sovereign Risk in Brazil</h3>
+          <div class="meta">
+            <span class="tag">Accepted for presentation, Encontro Brasileiro de Finanças</span>
+            <span class="tag">with Victor L. Stilita and Ramon Lima Ribeiro</span>
+            <span class="tag">Financial Stress</span>
+            <span class="tag">Text Analysis</span>
+          </div>
+          <p>
+            Develops text-based indicators of financial stress for Brazil using Google Trends and financial news,
+            and evaluates their predictive content for Brazil’s 5-year sovereign CDS spread.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>Who Bears the Burden of Monetary Tightening? Credit Default Responses Across Income Groups and Firm Sizes in Brazil</h3>
+          <div class="meta">
+            <span class="tag">Under Review</span>
+            <span class="tag">Macro-Finance</span>
+            <span class="tag">Credit Default</span>
+            <span class="tag">Heterogeneity</span>
+          </div>
+          <p>
+            Studies heterogeneous monetary transmission to credit default in Brazil using disaggregated Central Bank data
+            by income bracket, firm size, and state.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>From Climate-Vulnerability Indicators to Environmental Policy Targeting: Classification Rules and Public Resource Allocation in Northeast Brazil</h3>
+          <div class="meta">
+            <span class="tag">Under Review</span>
+            <span class="tag">Climate Policy</span>
+            <span class="tag">Targeting</span>
+            <span class="tag">Public Resource Allocation</span>
+          </div>
+          <p>
+            Examines how climate-vulnerability indicators are converted into priority groups and whether those groups
+            align with public resource allocation channels in Northeast Brazil.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="other">
+      <div class="section-head">
+        <h2>Other Research</h2>
+        <p class="section-intro">Additional submitted and under-review manuscripts.</p>
+      </div>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h3>Sectoral Productive Shocks and Poverty Reduction in Brazilian Microregions</h3>
+          <div class="meta">
+            <span class="tag">Under Review</span>
+            <span class="tag">Poverty</span>
+            <span class="tag">Shift-Share Design</span>
+            <span class="tag">Regional Development</span>
+          </div>
+          <p>
+            Estimates the reduced-form relationship between microregional exposure to national sectoral wage-bill shocks
+            and poverty reduction in Brazil between the 2000 and 2010 censuses.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>Nowcasting Brazilian Quarterly GDP: Mixed-Frequency Econometric and Machine Learning Models Under Multiple Performance Criteria</h3>
+          <div class="meta">
+            <span class="tag">Under Review</span>
+            <span class="tag">Forecasting</span>
+            <span class="tag">MIDAS</span>
+            <span class="tag">Machine Learning</span>
+          </div>
+          <p>
+            Evaluates a real-time nowcasting framework for Brazilian quarterly GDP using mixed-frequency econometric
+            models, machine-learning methods, and multiple forecast-performance criteria.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>Intersectional Lower-Tail Wage Rigidity in Brazil: Evidence from Census Data and Synthetic Cohorts</h3>
+          <div class="meta">
+            <span class="tag">Submitted, ANPEC Regional</span>
+            <span class="tag">Labor Economics</span>
+            <span class="tag">Inequality</span>
+            <span class="tag">Quantile Regression</span>
+          </div>
+          <p>
+            Documents intersectional lower-tail wage disadvantage in Brazil using the 2010 Census, quantile methods,
+            RIF-based decompositions, and PNAD Contínua synthetic cohorts.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="wip">
+      <div class="section-head">
+        <h2>Work in Progress</h2>
+        <p class="section-intro">Ongoing projects. Some Portuguese-language manuscripts were prepared for Brazilian policy calls.</p>
+      </div>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h3>Local Grocery Structure and the Incidence of Food-Cost Shocks: Evidence from Fortaleza, Brazil</h3>
+          <div class="meta">
+            <span class="tag">Work in Progress</span>
+            <span class="tag">with Fabrício Carneiro Linhares</span>
+            <span class="tag">Urban Economics</span>
+            <span class="tag">Food Prices</span>
+          </div>
+          <p>
+            Studies whether common upstream food-cost shocks have different downstream incidence across neighborhoods
+            within Fortaleza, and whether this heterogeneity is associated with pre-existing local grocery structure.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>Decomposing Inequality in Brazil: An Analysis of Gini Coefficient Subgroups</h3>
+          <div class="meta">
+            <span class="tag">Work in Progress</span>
+            <span class="tag">with Ramon Lima Ribeiro and Felipe S. Bastos</span>
+            <span class="tag">Inequality Measurement</span>
+            <span class="tag">Brazil</span>
+          </div>
+          <p>
+            Applies a recent exact decomposition of the Gini coefficient to Brazilian household income data, separating
+            within-group and between-group inequality across demographic and regional dimensions.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>Productive Public Credit and Municipal Tax Capacity: Evidence from BNDES and Brazilian Fiscal Federalism</h3>
+          <div class="meta">
+            <span class="tag">Work in Progress</span>
+            <span class="tag">with Ramon Lima Ribeiro</span>
+            <span class="tag">Portuguese-language manuscript for a Brazilian public policy call</span>
+            <span class="tag">Public Finance</span>
+          </div>
+          <p>
+            Examines whether productive public credit strengthens municipal own-source tax capacity in Brazil, using
+            predetermined municipal exposure to BNDES credit products and national product-level credit shocks.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>Credit with Discipline? CAPAG, Federal Guarantees, and Municipal Investment Additionality</h3>
+          <div class="meta">
+            <span class="tag">Work in Progress</span>
+            <span class="tag">with Ramon Lima Ribeiro</span>
+            <span class="tag">Portuguese-language manuscript for a Brazilian public policy call</span>
+            <span class="tag">Regression Discontinuity</span>
+          </div>
+          <p>
+            Evaluates Brazil’s municipal Payment Capacity rating as a fiscal-screening and federal-guarantee eligibility
+            rule, exploiting the discontinuity in the current-savings indicator at the institutional cutoff.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="section-intro">For manuscripts, research correspondence, or collaboration.</p>
+      </div>
+      <div class="about-card">
+        <p>
+          Email: <a href="mailto:pedro_oliveira@caen.ufc.br">pedro_oliveira@caen.ufc.br</a><br />
+          ORCID: <a href="https://orcid.org/0009-0007-6610-9390" target="_blank" rel="noopener">0009-0007-6610-9390</a>
+        </p>
+        <p class="note">
+          Manuscripts and replication materials are available upon request. A CV, Google Scholar profile, and GitHub
+          repository can be added here once they are updated and organized.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Pedro Igor Oliveira. Last updated: May 2026.
+    </div>
+  </footer>
+</body>
+</html>
