@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Academic website of Pedro Igor Oliveira, M.A. student in Economics at CAEN/UFC. Research in Econometrics, Poverty and Inequality, and Development Economics." />
+  <meta name="description" content="Academic website of Pedro Igor Oliveira, M.Sc. student in Economics at CAEN/UFC. Research in Econometrics, Poverty and Inequality, and Development Economics." />
   <title>Pedro Igor Oliveira</title>
   <style>
     :root {
@@ -242,6 +242,36 @@
       color: #344054;
     }
 
+    .abstract {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .abstract summary {
+      width: fit-content;
+      cursor: pointer;
+      color: var(--accent);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 650;
+    }
+
+    .abstract summary:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .abstract[open] summary {
+      margin-bottom: 10px;
+    }
+
+    .abstract p {
+      color: #475467;
+      font-size: 0.98rem;
+      line-height: 1.58;
+    }
+
     .note {
       margin-top: 14px;
       font-size: 0.95rem;
@@ -283,7 +313,7 @@
       <div class="topline">
         <div>
           <h1>Pedro Igor Oliveira</h1>
-          <p class="subtitle">M.A. Student in Economics, CAEN/UFC</p>
+          <p class="subtitle">M.Sc. Student in Economics, CAEN/UFC</p>
           <p class="subtitle">Econometrics · Poverty and Inequality · Development Economics</p>
         </div>
         <div class="contact" aria-label="Contact links">
@@ -296,7 +326,7 @@
       <nav aria-label="Main navigation">
         <a href="#about">About</a>
         <a href="#selected">Selected Research</a>
-        <a href="#other">Other Research</a>
+        <a href="#under-review">Under Review</a>
         <a href="#wip">Work in Progress</a>
         <a href="CV_Pedro_Igor_Oliveira.pdf" target="_blank" rel="noopener">CV</a>
         <a href="#contact">Contact</a>
@@ -312,31 +342,29 @@
       </div>
       <div class="about-card">
         <p>
-          I am an M.A. student in Economics at CAEN/UFC. My research interests are in
+          I am an M.Sc. student in Economics at CAEN/UFC. My research interests are in
           <strong>Econometrics</strong>, <strong>Poverty and Inequality</strong>, and
-          <strong>Development Economics</strong>, with a focus on distributional methods,
-          policy evaluation, regional development, public finance, and macro-financial risk.
+          <strong>Development Economics</strong>, with a focus on quantile regressions,
+          spatial econometrics, policy evaluation, and regional development.
         </p>
         <p>
-          My current work combines methodological and applied research. On the econometric side,
-          I study panel-data methods for distributional objects, including weighted-average quantile
-          functionals and extreme panel quantiles under common shocks. On the applied side, I work
-          on poverty, inequality, credit, fiscal capacity, climate-policy targeting, food-price incidence,
-          and financial-stress measurement in Brazil.
+          My work combines methodological and applied research, with an emphasis on empirical questions
+          relevant to developing economies. I am particularly interested in using distributional, spatial,
+          and panel-data methods to study regional disparities and evaluate public policies.
         </p>
         <p>
           I hold a B.A. in Economics from the Federal University of Ceará, where I graduated
-          <em>summa cum laude</em>. My research uses administrative data, survey microdata,
-          panel methods, shift-share designs, regression discontinuity, text-based measurement,
-          and forecasting tools to study policy-relevant questions in developing economies.
+          <em>summa cum laude</em>. My research draws on administrative data, survey microdata,
+          and reproducible computational workflows to address policy-relevant economic questions.
         </p>
 
         <div class="fields">
           <span class="field">Econometrics</span>
           <span class="field">Poverty and Inequality</span>
           <span class="field">Development Economics</span>
+          <span class="field">Quantile Regression</span>
+          <span class="field">Spatial Econometrics</span>
           <span class="field">Policy Evaluation</span>
-          <span class="field">Public Finance</span>
           <span class="field">Regional Development</span>
         </div>
       </div>
@@ -345,14 +373,13 @@
     <section id="selected">
       <div class="section-head">
         <h2>Selected Research</h2>
-        <p class="section-intro">Papers under review or with external presentation acceptance.</p>
+        <p class="section-intro">Highlighted methodological research.</p>
       </div>
 
       <div class="paper-list">
         <article class="paper">
           <h3>Distributional Functionals in Fixed-Effects Panels: A Weighted-Average Quantile Approach</h3>
           <div class="meta">
-            <span class="tag">Under Review</span>
             <span class="tag">Econometrics</span>
             <span class="tag">Panel Data</span>
             <span class="tag">Quantile Methods</span>
@@ -362,12 +389,72 @@
             feature of the conditional distribution, such as expected shortfall, lower-tail welfare, inequality-sensitive
             welfare, or distributional spread.
           </p>
+          <details class="abstract">
+            <summary>Read abstract</summary>
+            <p>
+              This article develops weighted-average quantile regression (WAQR) for fixed-effects panels when the object
+              of interest is not a mean or an isolated quantile, but an integrated feature of the conditional distribution.
+              The method is designed for questions about expected shortfall, lower-tail welfare, inequality-sensitive
+              welfare, and distributional spread, where conventional fixed-effects regressions and pointwise panel quantile
+              regressions answer different, and often incomplete, questions. WAQR estimates a smoothed fixed-effects
+              quantile process and maps it into an orthogonal transformed outcome whose within-regression coefficient
+              targets the chosen distributional functional. Cross-fitting and leave-one-out nuisance evaluation eliminate
+              first-order own-observation feedback, while split-panel jackknife corrections remove the remaining
+              incidental-parameter bias. For the normalized smoothed fixed-effects quantile first step, the leading two-way
+              bias has additive 1/T and 1/n components and is removed by a full-panel, time-split, and cross-section-split
+              combination. The resulting estimator is √nT-asymptotically normal and supports cluster-robust
+              inference without estimating conditional densities. Simulations verify the bias correction and show that
+              naive integration of fixed-effects quantile slopes can target the wrong estimand. Applications to international
+              welfare and U.S. industry-portfolio returns show economically meaningful differences between mean,
+              lower-tail, expected-shortfall, and spread effects.
+            </p>
+          </details>
         </article>
 
         <article class="paper">
+          <h3>A Threshold Spatial Durbin Panel Model: Estimation, Bias Correction, and Inference</h3>
+          <p class="authors">with Fabrício Carneiro Linhares</p>
+          <div class="meta">
+            <span class="tag">Spatial Econometrics</span>
+            <span class="tag">Panel Data</span>
+            <span class="tag">Threshold Models</span>
+            <span class="tag">Bias Correction</span>
+          </div>
+          <p>
+            Develops a threshold spatial Durbin panel model in which spatial dependence and covariate effects switch
+            jointly across regimes, with fixed-effect bias correction and bootstrap inference.
+          </p>
+          <details class="abstract">
+            <summary>Read abstract</summary>
+            <p>
+              This paper proposes a spatial panel model in which the spatial-lag coefficient, the slopes on the covariates,
+              and the slopes on their spatial lags switch jointly at an unknown threshold in an observed variable. Estimation
+              proceeds by quasi-maximum likelihood (QML) after removing unit fixed effects, together with an analytical
+              correction for the variance bias that this removal introduces. We establish the large-sample properties of
+              the threshold and slope estimators and propose a bootstrap test for whether a threshold is present or not.
+              Monte Carlo evidence across panel sizes typical of regional economics shows that the bias correction is
+              necessary for accurate variance estimation and that the corrected estimator improves on both a single-regime
+              spatial specification and a threshold specification without spatial dependence. Applied to sixty economies
+              observed over four decades, the model illustrates its use by locating a development threshold near eight
+              thousand five hundred dollars per capita in initial income, above which growth transmission across borders
+              is markedly stronger than below it, a distinction that neither the single-regime nor the non-spatial threshold
+              specification can express.
+            </p>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="under-review">
+      <div class="section-head">
+        <h2>Under Review</h2>
+        <p class="section-intro">Manuscripts currently under review or submitted.</p>
+      </div>
+
+      <div class="paper-list">
+        <article class="paper">
           <h3>Common-Shock-Robust Inference for Extreme Panel Quantiles</h3>
           <div class="meta">
-            <span class="tag">Under Review</span>
             <span class="tag">Econometrics</span>
             <span class="tag">Extreme Quantiles</span>
             <span class="tag">Common Shocks</span>
@@ -376,27 +463,33 @@
             Proposes an inference framework for extrapolated extreme panel quantiles that accounts for synchronized
             common shocks with heterogeneous exposure across units, with an empirical illustration using food-inflation risk.
           </p>
-        </article>
-
-        <article class="paper">
-          <h3>Text-Based Financial Stress and Sovereign Risk in Brazil</h3>
-          <p class="authors">with Victor L. Stilita and Ramon Lima Ribeiro</p>
-          <div class="meta">
-            <span class="tag">Accepted for presentation, Encontro Brasileiro de Finanças</span>
-            <span class="tag">Financial Stress</span>
-            <span class="tag">Text Analysis</span>
-          </div>
-          <p>
-            Develops text-based indicators of financial stress for Brazil using Google Trends and financial news,
-            and evaluates their predictive content for Brazil’s 5-year sovereign CDS spread.
-          </p>
+          <details class="abstract">
+            <summary>Read abstract</summary>
+            <p>
+              Extreme conditional quantiles in panel data are commonly obtained by extrapolating from intermediate quantile
+              estimates, an approach that becomes fragile when many units are pushed into the tail by the same aggregate
+              events. In such settings, pervasive common shocks do not only create cross-sectional dependence in the final
+              statistic; they may also enter the intermediate anchor, distort the local spacing used for extrapolation, and
+              concentrate the residual exceedances from which tail shape is learned. This paper develops an inference
+              procedure for extrapolated extreme panel quantiles that is robust to synchronized shocks with heterogeneous
+              exposure across units. The method defines a common-correlated-effects proxy target, estimates CCE-augmented
+              fixed-effects quantile anchors, and derives a joint expansion that carries anchor, spacing, and tail-index
+              uncertainty into the final extreme quantile through a time-cluster multiplier. The Monte Carlo evidence shows
+              that, when common-shock exposure is heterogeneous, interacted CCE adjustments substantially improve coverage,
+              reduce prediction error, and prevent residual tail events from being dominated by a small number of dates.
+              An empirical illustration using monthly food-inflation acceleration in 51 developing economies shows that
+              accounting for common shocks lowers measured aggregate q99 tail risk relative to unadjusted extrapolation,
+              while preserving a clear development-vulnerability gradient across countries. The proposed framework therefore
+              provides both an inferential correction and a diagnostic protocol for assessing whether extreme panel quantile
+              conclusions are driven by genuine tail heterogeneity or by synchronized common-shock episodes.
+            </p>
+          </details>
         </article>
 
         <article class="paper">
           <h3>Who Bears the Burden of Monetary Tightening? Credit Default Responses Across Income Groups and Firm Sizes in Brazil</h3>
           <p class="authors">with Ramon Lima Ribeiro and Victor L. Stilita</p>
           <div class="meta">
-            <span class="tag">Under Review</span>
             <span class="tag">Macro-Finance</span>
             <span class="tag">Credit Default</span>
             <span class="tag">Heterogeneity</span>
@@ -405,13 +498,31 @@
             Studies heterogeneous monetary transmission to credit default in Brazil using disaggregated Central Bank data
             by income bracket, firm size, and state.
           </p>
+          <details class="abstract">
+            <summary>Read abstract</summary>
+            <p>
+              This paper examines heterogeneous monetary transmission to credit default in Brazil, exploiting granular
+              disaggregation by income bracket, firm size, and state. Using monthly Central Bank data from 2012 to 2024
+              covering all 27 Brazilian states, we document three central patterns with direct policy relevance. We find
+              robust Granger-predictive relationships from the benchmark interest rate to default in specific population and
+              business segments, with responses typically becoming visible after roughly 6-7 months for individuals and
+              10-14 months for corporations; temporal horizons consistent with international literature on monetary policy
+              transmission through credit channels. We document, for individuals, that the broader central segment of the
+              income distribution, spanning 1-10 minimum wages, from lower-middle to middle-income households, displays
+              the strongest responses relative to lower or higher income groups; for corporations, small firms display the
+              clearest and strongest responses, while micro firms also react but with less precise aggregate evidence. Third,
+              we show that predictive causality plus impulse responses can still deliver policy-relevant guidance without full
+              structural identification. Additional mechanism exercises using occupational, sectoral, and product-level splits
+              from the same credit registry suggest that the firm-side heterogeneity is most strongly associated with
+              institutional credit segmentation, especially free and short-term credit.
+            </p>
+          </details>
         </article>
 
         <article class="paper">
           <h3>From Climate-Vulnerability Indicators to Environmental Policy Targeting: Classification Rules and Public Resource Allocation in Northeast Brazil</h3>
           <p class="authors">with Fabrício C. Linhares</p>
           <div class="meta">
-            <span class="tag">Under Review</span>
             <span class="tag">Climate Policy</span>
             <span class="tag">Targeting</span>
             <span class="tag">Public Resource Allocation</span>
@@ -420,21 +531,31 @@
             Examines how climate-vulnerability indicators are converted into priority groups and whether those groups
             align with public resource allocation channels in Northeast Brazil.
           </p>
+          <details class="abstract">
+            <summary>Read abstract</summary>
+            <p>
+              Administrative climate-vulnerability indicators are increasingly used to guide adaptation planning, drought
+              response, and territorial targeting. Yet their policy value depends not only on measurement, but also on how
+              continuous scores are converted into operational priority groups and linked to allocation procedures. This
+              article examines this measurement-classification-allocation problem using Ceará's Municipal Alert Index, an
+              annual climate-vulnerability indicator covering all 184 municipalities from 2004 to 2025. We compare the
+              official threshold-based classification with two persistence-sensitive Rectangular Latent Markov alternatives,
+              one using the twelve component indicators and another using the aggregate index. We then assess whether the
+              resulting priority groups align with formula-based municipal transfers, subsidised regional development credit,
+              and discretionary parliamentary allocations. The results show that classification design materially changes both
+              the geography and temporal stability of climate-policy priority. The official rule produces substantial annual
+              relabelling, whereas the Markov approaches identify more persistent territorial profiles. However, more credible
+              classification does not automatically translate into vulnerability-responsive allocation: transfers, credit, and
+              discretionary spending each follow distinct institutional logics. The findings suggest that climate-vulnerability
+              indicators become effective environmental-policy instruments only when measurement, classification, and
+              allocation are jointly designed.
+            </p>
+          </details>
         </article>
-      </div>
-    </section>
 
-    <section id="other">
-      <div class="section-head">
-        <h2>Other Research</h2>
-        <p class="section-intro">Additional submitted and under-review manuscripts.</p>
-      </div>
-
-      <div class="paper-list">
         <article class="paper">
           <h3>Sectoral Productive Shocks and Poverty Reduction in Brazilian Microregions</h3>
           <div class="meta">
-            <span class="tag">Under Review</span>
             <span class="tag">Poverty</span>
             <span class="tag">Shift-Share Design</span>
             <span class="tag">Regional Development</span>
@@ -443,12 +564,25 @@
             Estimates the reduced-form relationship between microregional exposure to national sectoral wage-bill shocks
             and poverty reduction in Brazil between the 2000 and 2010 censuses.
           </p>
+          <details class="abstract">
+            <summary>Read abstract</summary>
+            <p>
+              We estimate the reduced-form effect of Brazilian microregions' exposure to national sectoral shocks on poverty
+              from 2000 to 2010. Using a shift-share design based on predetermined sectoral composition, a one-standard-
+              deviation increase in predicted wage-bill exposure reduces the poverty headcount by 0.48 percentage points,
+              the poverty gap by 0.46 percentage points, and poverty severity by 0.40 percentage points. The estimates are
+              stable across official microregions, alternative Bartik weights, state-clustered and shift-share-robust standard
+              errors, and the exclusion of refined petroleum. Permutation inference is more conservative, and Rotemberg
+              weights show that identification is concentrated in extractive and petroleum-related sectors. We therefore
+              interpret the results as reduced-form evidence on the local poverty incidence of sectoral exposure, not as proof
+              that broad formalization is the causal channel.
+            </p>
+          </details>
         </article>
 
         <article class="paper">
           <h3>Nowcasting Brazilian Quarterly GDP: Mixed-Frequency Econometric and Machine Learning Models Under Multiple Performance Criteria</h3>
           <div class="meta">
-            <span class="tag">Under Review</span>
             <span class="tag">Forecasting</span>
             <span class="tag">MIDAS</span>
             <span class="tag">Machine Learning</span>
@@ -457,12 +591,32 @@
             Evaluates a real-time nowcasting framework for Brazilian quarterly GDP using mixed-frequency econometric
             models, machine-learning methods, and multiple forecast-performance criteria.
           </p>
+          <details class="abstract">
+            <summary>Read abstract</summary>
+            <p>
+              This paper evaluates a real-time nowcasting system for Brazilian quarterly GDP that combines a mixed-frequency
+              data flow with alternative econometric and machine-learning approaches. Using a pseudo real-time design over
+              2015Q1-2025Q1 and four forecast horizons (nowcast through three quarters ahead), we benchmark ten model
+              classes under three predictor environments: a full panel of monthly indicators and two reduced panels obtained
+              via LASSO and One-Covariate-at-a-time Multiple Testing (OCMT) preselection. We assess performance along
+              dimensions relevant for policy institutions: point accuracy (RMSE and MAE), directional and turning-point
+              measures, tail-risk and low-growth detection, and multiple-model inference. The results show that model rankings
+              are not invariant to the information environment or to the timing of the nowcast within the quarter. In the full
+              panel, mixed-frequency shrinkage, sgLASSO-MIDAS, delivers the strongest average accuracy, while LASSO
+              preselection shifts the frontier toward regularized linear prediction - Elastic Net. Under OCMT, mixed-frequency
+              econometric models remain competitive and threshold MIDAS exhibits particularly strong crisis-relevant
+              performance. Multiple-model inference indicates that several configurations are statistically hard to distinguish,
+              supporting a short-list approach complemented by implementability and monitoring objectives. Overall, effective
+              real-time GDP monitoring in Brazil benefits from matching model structure, variable selection, and the decision
+              loss faced by institutions.
+            </p>
+          </details>
         </article>
 
         <article class="paper">
           <h3>Intersectional Lower-Tail Wage Rigidity in Brazil: Evidence from Census Data and Synthetic Cohorts</h3>
           <div class="meta">
-            <span class="tag">Submitted, ANPEC Regional</span>
+            <span class="tag">ANPEC Regional</span>
             <span class="tag">Labor Economics</span>
             <span class="tag">Inequality</span>
             <span class="tag">Quantile Regression</span>
@@ -471,6 +625,22 @@
             Documents intersectional lower-tail wage disadvantage in Brazil using the 2010 Census, quantile methods,
             RIF-based decompositions, and PNAD Contínua synthetic cohorts.
           </p>
+          <details class="abstract">
+            <summary>Read abstract</summary>
+            <p>
+              This paper documents intersectional lower-tail wage rigidity in Brazil, defined strictly as a distributional
+              pattern across groups rather than as institutional wage stickiness or individual dynamic entrapment. Using the
+              2010 Brazilian Demographic Census, we compare workers across race/color, gender, and Northeast residence and
+              ask whether disadvantage appears not only in average wages, but also in bottom-tail representation,
+              quantile-specific penalties, nonlinear wage gradients, and wage-structure components. The empirical strategy
+              combines descriptive bottom-decile measures, conditional quantile regressions, RIF-based unconditional quantile
+              regressions, threshold-style quantile models, and RIF decompositions, complemented by PNAD Contínua synthetic
+              cohorts for 2012-2023. Northeast Black/Brown women and men are disproportionately represented in the bottom
+              decile, face large lower-tail penalties, and display persistent cohort-level Q10 gaps across repeated cross-sections.
+              The results provide a coherent set of distributional and cohort-level facts consistent with mechanisms emphasized
+              in the persistent-poverty, inequality-of-opportunity, and regional-development literatures.
+            </p>
+          </details>
         </article>
       </div>
     </section>
@@ -478,7 +648,7 @@
     <section id="wip">
       <div class="section-head">
         <h2>Work in Progress</h2>
-        <p class="section-intro">Ongoing projects. Some Portuguese-language manuscripts were prepared for Brazilian policy calls.</p>
+        <p class="section-intro">Ongoing research projects.</p>
       </div>
 
       <div class="paper-list">
@@ -486,55 +656,49 @@
           <h3>Local Grocery Structure and the Incidence of Food-Cost Shocks: Evidence from Fortaleza, Brazil</h3>
           <p class="authors">with Fabrício Carneiro Linhares</p>
           <div class="meta">
-            <span class="tag">Work in Progress</span>
             <span class="tag">Urban Economics</span>
             <span class="tag">Food Prices</span>
           </div>
-          <p>
-            Studies whether common upstream food-cost shocks have different downstream incidence across neighborhoods
-            within Fortaleza, and whether this heterogeneity is associated with pre-existing local grocery structure.
-          </p>
+          <details class="abstract">
+            <summary>Read abstract</summary>
+            <p>
+              This project studies how common upstream food-cost shocks pass through to neighborhood-level grocery prices
+              in Fortaleza, asking whether pre-existing differences in local retail structure shape the incidence of those shocks.
+            </p>
+          </details>
         </article>
 
         <article class="paper">
           <h3>Decomposing Inequality in Brazil: An Analysis of Gini Coefficient Subgroups</h3>
           <p class="authors">with Ramon Lima Ribeiro and Felipe S. Bastos</p>
           <div class="meta">
-            <span class="tag">Work in Progress</span>
             <span class="tag">Inequality Measurement</span>
             <span class="tag">Brazil</span>
           </div>
-          <p>
-            Applies a recent exact decomposition of the Gini coefficient to Brazilian household income data, separating
-            within-group and between-group inequality across demographic and regional dimensions.
-          </p>
-        </article>
-
-        <article class="paper">
-          <h3>Productive Public Credit and Municipal Tax Capacity: Evidence from BNDES and Brazilian Fiscal Federalism</h3>
-          <p class="authors">with Ramon Lima Ribeiro</p>
-          <div class="meta">
-            <span class="tag">Work in Progress</span>
-            <span class="tag">Portuguese-language manuscript for a Brazilian public policy call</span>
-            <span class="tag">Public Finance</span>
-          </div>
-          <p>
-            Examines whether productive public credit strengthens municipal own-source tax capacity in Brazil, using
-            predetermined municipal exposure to BNDES credit products and national product-level credit shocks.
-          </p>
+          <details class="abstract">
+            <summary>Read abstract</summary>
+            <p>
+              This project applies an exact subgroup decomposition of the Gini coefficient to Brazilian household income
+              data, separating within-group and between-group inequality across demographic and regional dimensions.
+            </p>
+          </details>
         </article>
 
         <article class="paper">
           <h3>Credit with Discipline? CAPAG, Federal Guarantees, and Municipal Investment Additionality</h3>
+          <p class="authors">with Ramon Lima Ribeiro</p>
           <div class="meta">
-            <span class="tag">Work in Progress</span>
-            <span class="tag">Portuguese-language manuscript for a Brazilian public policy call</span>
+            <span class="tag">Public Finance</span>
             <span class="tag">Regression Discontinuity</span>
           </div>
-          <p>
-            Evaluates Brazil’s municipal Payment Capacity rating as a fiscal-screening and federal-guarantee eligibility
-            rule, exploiting the discontinuity in the current-savings indicator at the institutional cutoff.
-          </p>
+          <details class="abstract">
+            <summary>Read abstract</summary>
+            <p>
+              This project evaluates Brazil's municipal Payment Capacity rating as a fiscal-screening and federal-guarantee
+              eligibility rule, exploiting the discontinuity in the current-savings indicator at the institutional cutoff to study
+              municipal investment additionality.
+            </p>
+          </details>
         </article>
       </div>
     </section>
