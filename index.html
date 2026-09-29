@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Academic website of Pedro Igor Oliveira, M.Sc. student in Economics at CAEN/UFC and researcher at ADECE. Research in Econometrics, Poverty and Inequality, Development Economics, and Public Policy Evaluation." />
+  <title>Pedro Igor Oliveira</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --paper: #ffffff;
+      --ink: #1f2933;
+      --heading: #111827;
+      --body-text: #344054;
+      --abstract-text: #475467;
+      --muted: #667085;
+      --line: #ddd8ce;
+      --accent: #25364f;
+      --accent-soft: #eef1f6;
+      --tag: #f2efe8;
+      --tag-border: #e1d9ca;
+      --tag-text: #60584d;
+      --header-top: #ffffff;
+      --pill-bg: rgba(255,255,255,0.76);
+      --shadow: rgba(16, 24, 40, 0.04);
+      --max: 1040px;
+    }
+
+    body.dark-mode {
+      --bg: #11151b;
+      --paper: #171d25;
+      --ink: #e5e7eb;
+      --heading: #f8fafc;
+      --body-text: #d0d5dd;
+      --abstract-text: #c7ced8;
+      --muted: #aab2bf;
+      --line: #303846;
+      --accent: #c7d5e8;
+      --accent-soft: #202a37;
+      --tag: #242b34;
+      --tag-border: #39424f;
+      --tag-text: #d6d9df;
+      --header-top: #171d25;
+      --pill-bg: rgba(23,29,37,0.88);
+      --shadow: rgba(0, 0, 0, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+      font-size: 17px;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid color-mix(in srgb, var(--accent) 25%, transparent);
+    }
+
+    a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 54px 0 34px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, var(--header-top) 0%, var(--bg) 100%);
+    }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      align-items: flex-start;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 4vw, 3.4rem);
+      line-height: 1.05;
+      margin: 0 0 10px;
+      letter-spacing: -0.035em;
+      color: var(--heading);
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .contact {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 4px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .pill,
+    .theme-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 11px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--pill-bg);
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    .pill a {
+      border: 0;
+    }
+
+    .theme-toggle {
+      cursor: pointer;
+      font: inherit;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+    }
+
+    nav {
+      margin-top: 28px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.84rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+    }
+
+    nav a {
+      color: var(--muted);
+      border: 0;
+      padding-bottom: 3px;
+    }
+
+    nav a:hover {
+      color: var(--accent);
+    }
+
+    main {
+      padding: 38px 0 60px;
+    }
+
+    section {
+      margin: 0 0 42px;
+      scroll-margin-top: 18px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 28px;
+      align-items: start;
+      margin-bottom: 18px;
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--heading);
+      font-size: 1.08rem;
+      line-height: 1.25;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .section-intro {
+      margin: 0;
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .about-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 18px 40px var(--shadow);
+    }
+
+    .about-card p {
+      margin: 0 0 14px;
+    }
+
+    .about-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .fields {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .field {
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid var(--line);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .paper-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .paper {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 22px 24px;
+      box-shadow: 0 14px 34px var(--shadow);
+    }
+
+    .paper h3 {
+      margin: 0 0 8px;
+      font-size: 1.22rem;
+      line-height: 1.28;
+      color: var(--heading);
+      letter-spacing: -0.01em;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0 0 12px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .authors {
+      margin: -2px 0 10px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.94rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--tag);
+      border: 1px solid var(--tag-border);
+      color: var(--tag-text);
+    }
+
+    .paper p {
+      margin: 0;
+      color: var(--body-text);
+    }
+
+    .paper-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 14px;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .paper-actions a {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .paper-actions a:hover {
+      border-color: var(--accent);
+    }
+
+    .abstract {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+
+    .abstract summary {
+      width: fit-content;
+      cursor: pointer;
+      color: var(--accent);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 650;
+    }
+
+    .abstract summary:hover {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .abstract[open] summary {
+      margin-bottom: 10px;
+    }
+
+    .abstract p {
+      color: var(--abstract-text);
+      font-size: 0.98rem;
+      line-height: 1.58;
+    }
+
+    .note {
+      margin-top: 14px;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 24px 0 38px;
+      color: var(--muted);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 780px) {
+      .topline {
+        display: block;
+      }
+
+      .contact {
+        justify-content: flex-start;
+        margin-top: 20px;
+      }
+
+      .section-head {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .paper {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topline">
+        <div>
+          <h1>Pedro Igor Oliveira</h1>
+          <p class="subtitle">M.Sc. Student in Economics, CAEN/UFC</p>
+          <p class="subtitle">Econometrics · Poverty and Inequality · Development Economics</p>
+        </div>
+        <div class="contact" aria-label="Contact links">
+          <span class="pill"><a href="mailto:pedro_oliveira@caen.ufc.br">pedro_oliveira@caen.ufc.br</a></span>
+          <span class="pill"><a href="https://orcid.org/0009-0007-6610-9390" target="_blank" rel="noopener">ORCID: 0009-0007-6610-9390</a></span>
+          <span class="pill"><a href="CV_Pedro_Igor_Oliveira.pdf" target="_blank" rel="noopener">CV</a></span>
+          <button class="theme-toggle" id="theme-toggle" type="button" aria-pressed="false" aria-label="Switch to dark mode">🌙 Dark</button>
+        </div>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#selected">Selected Research</a>
+        <a href="#published">Published</a>
+        <a href="#accepted">Accepted</a>
+        <a href="#revision">In Revision</a>
+        <a href="#under-review">Under Review</a>
+        <a href="#conferences">Conferences</a>
+        <a href="#wip">Work in Progress</a>
+        <a href="CV_Pedro_Igor_Oliveira.pdf" target="_blank" rel="noopener">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="about">
+      <div class="section-head">
+        <h2>About</h2>
+        <p class="section-intro">Research profile and fields.</p>
+      </div>
+      <div class="about-card">
+        <p>
+          I am an M.Sc. student in Economics at CAEN/UFC. My research interests are in
+          <strong>Econometrics</strong>, <strong>Poverty and Inequality</strong>, and
+          <strong>Development Economics</strong>, with a focus on quantile regressions,
+          spatial econometrics, policy evaluation, and regional development.
+        </p>
+        <p>
+          I am also a researcher at the Ceará Development Agency (ADECE), where I work primarily on
+          socioeconomic indicators for public-policy analysis and on the evaluation of public policies.
+        </p>
+        <p>
+          My work combines methodological and applied research, with an emphasis on empirical questions
+          relevant to developing economies. I am particularly interested in using distributional, spatial,
+          and panel-data methods to study regional disparities and evaluate public policies.
+        </p>
+        <p>
+          I hold a B.A. in Economics from the Federal University of Ceará, where I graduated
+          <em>summa cum laude</em>. My research draws on administrative data and survey microdata
+          to address policy-relevant economic questions.
+        </p>
+
+        <div class="fields">
+          <span class="field">Econometrics</span>
+          <span class="field">Poverty and Inequality</span>
+          <span class="field">Development Economics</span>
+          <span class="field">Quantile Regression</span>
+          <span class="field">Spatial Econometrics</span>
+          <span class="field">Policy Evaluation</span>
+          <span class="field">Regional Development</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="selected">
+      <div class="section-head">
+        <h2>Selected Research</h2>
+        <p class="section-intro">Highlighted methodological research.</p>
+      </div>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h3>Regime-Dependent Spatial Multipliers in Panel Data: A Threshold Spatial Durbin Approach</h3>
+          <p class="authors">with Fabrício Carneiro Linhares</p>
+          <div class="meta">
+            <span class="tag">M.Sc. Thesis</span>
+            <span class="tag">Spatial Econometrics</span>
+            <span class="tag">Panel Data</span>
+            <span class="tag">Threshold Models</span>
+          </div>
+          <p>
+            Develops a threshold spatial Durbin panel framework in which spatial dependence and covariate effects
+            can vary across regimes, with estimation, bias correction, and inference for regime-dependent spatial multipliers.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>Common-Shock-Robust Inference for Extreme Panel Quantiles</h3>
+          <div class="meta">
+            <span class="tag">In Revision</span>
+            <span class="tag">Econometrics and Statistics</span>
+            <span class="tag">Econometrics</span>
+            <span class="tag">Extreme Quantiles</span>
+            <span class="tag">Common Shocks</span>
+          </div>
+          <p>
+            Proposes an inference framework for extrapolated extreme panel quantiles that accounts for synchronized
+            common shocks with heterogeneous exposure across units, with an empirical illustration using food-inflation risk.
+          </p>
+          <details class="abstract">
+            <summary>Read current abstract</summary>
+            <p>
+              Extreme conditional quantiles in panel data are commonly obtained by extrapolating from intermediate quantile
+              estimates, an approach that becomes fragile when many units are pushed into the tail by the same aggregate
+              events. In such settings, pervasive common shocks do not only create cross-sectional dependence in the final
+              statistic; they may also enter the intermediate anchor, distort the local spacing used for extrapolation, and
+              concentrate the residual exceedances from which tail shape is learned. This paper develops an inference
+              procedure for extrapolated extreme panel quantiles that is robust to synchronized shocks with heterogeneous
+              exposure across units. The method defines a common-correlated-effects proxy target, estimates CCE-augmented
+              fixed-effects quantile anchors, and derives a joint expansion that carries anchor, spacing, and tail-index
+              uncertainty into the final extreme quantile through a time-cluster multiplier. The Monte Carlo evidence shows
+              that, when common-shock exposure is heterogeneous, interacted CCE adjustments substantially improve coverage,
+              reduce prediction error, and prevent residual tail events from being dominated by a small number of dates.
+              An empirical illustration using monthly food-inflation acceleration in 51 developing economies shows that
+              accounting for common shocks lowers measured aggregate q99 tail risk relative to unadjusted extrapolation,
+              while preserving a clear development-vulnerability gradient across countries.
+            </p>
+          </details>
+        </article>
+      </div>
+    </section>
+
+    <section id="published">
+      <div class="section-head">
+        <h2>Published Papers</h2>
+        <p class="section-intro">Peer-reviewed articles already published.</p>
+      </div>
+      <div class="paper-list">
+        <article class="paper">
+          <h3>Who Bears the Burden of Monetary Tightening? Credit Default Responses Across Income Groups and Firm Sizes in Brazil</h3>
+          <p class="authors">with Ramon Lima Ribeiro and Victor L. Stilita</p>
+          <div class="meta">
+            <span class="tag">Published</span>
+            <span class="tag">International Economics and Economic Policy</span>
+            <span class="tag">2026</span>
+          </div>
+          <p>
+            Studies heterogeneous monetary transmission to credit default in Brazil using disaggregated Central Bank data
+            by income bracket, firm size, and state.
+          </p>
+          <div class="paper-actions">
+            <a href="https://doi.org/10.1007/s10368-026-00807-7" target="_blank" rel="noopener">DOI · 10.1007/s10368-026-00807-7</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="accepted">
+      <div class="section-head">
+        <h2>Accepted Papers</h2>
+        <p class="section-intro">Peer-reviewed articles accepted for publication.</p>
+      </div>
+      <div class="paper-list">
+        <article class="paper">
+          <h3>Enhancing State GDP Projections with MIDAS and Google Trends: Evidence from Ceará</h3>
+          <p class="authors">with Fabrício C. Linhares</p>
+          <div class="meta">
+            <span class="tag">Accepted for Publication</span>
+            <span class="tag">Revista Econômica do Nordeste</span>
+            <span class="tag">2025</span>
+          </div>
+        </article>
+
+        <article class="paper">
+          <h3>Sectoral Productive Shocks and Poverty Reduction in Brazilian Microregions</h3>
+          <div class="meta">
+            <span class="tag">Accepted for Publication</span>
+            <span class="tag">Revista Brasileira de Estudos Regionais e Urbanos</span>
+            <span class="tag">2026</span>
+          </div>
+          <p>
+            Estimates the reduced-form relationship between microregional exposure to national sectoral wage-bill shocks
+            and poverty reduction in Brazil between the 2000 and 2010 censuses.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="revision">
+      <div class="section-head">
+        <h2>In Revision</h2>
+        <p class="section-intro">Manuscripts currently in revision.</p>
+      </div>
+      <div class="paper-list">
+        <article class="paper">
+          <h3>Common-Shock-Robust Inference for Extreme Panel Quantiles</h3>
+          <div class="meta">
+            <span class="tag">Econometrics and Statistics</span>
+            <span class="tag">Econometrics</span>
+            <span class="tag">Extreme Quantiles</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="under-review">
+      <div class="section-head">
+        <h2>Under Review</h2>
+        <p class="section-intro">Manuscripts currently submitted or under review.</p>
+      </div>
+      <div class="paper-list">
+        <article class="paper">
+          <h3>Nowcasting Brazilian Quarterly GDP: Mixed-Frequency Econometric and Machine Learning Models Under Multiple Performance Criteria</h3>
+          <div class="meta">
+            <span class="tag">Under Review</span>
+            <span class="tag">Journal of Forecasting</span>
+            <span class="tag">MIDAS</span>
+            <span class="tag">Machine Learning</span>
+          </div>
+          <p>
+            Evaluates a real-time nowcasting framework for Brazilian quarterly GDP using mixed-frequency econometric
+            models, machine-learning methods, and multiple forecast-performance criteria.
+          </p>
+        </article>
+      </div>
+    </section>
+
+
+    <section id="conferences">
+      <div class="section-head">
+        <h2>Conference Papers</h2>
+        <p class="section-intro">Papers accepted for presentation in 2026.</p>
+      </div>
+      <div class="paper-list">
+        <article class="paper">
+          <h3>Regime-Dependent Spatial Multipliers in Panel Data: A Threshold Spatial Durbin Approach</h3>
+          <p class="authors">with Fabrício C. Linhares</p>
+          <div class="meta">
+            <span class="tag">Accepted for Presentation</span>
+            <span class="tag">48th Brazilian Meeting of Econometrics (EBE)</span>
+            <span class="tag">2026</span>
+          </div>
+        </article>
+
+        <article class="paper">
+          <h3>Water Storage Capacity and Child Health under Drought in Brazil</h3>
+          <p class="authors">with Ramon Lima Ribeiro and João Mário Santos de França</p>
+          <div class="meta">
+            <span class="tag">Accepted for Presentation</span>
+            <span class="tag">XXIV ENABER</span>
+            <span class="tag">2026</span>
+          </div>
+          <p>24th National Meeting of the Brazilian Association of Regional and Urban Studies.</p>
+        </article>
+
+        <article class="paper">
+          <h3>Public Development Credit and Agricultural Resilience to Drought: Evidence from Brazil’s Semi-Arid Northeast</h3>
+          <p class="authors">with Ramon Lima Ribeiro, Christiano Modesto Penna, and Felipe de Sousa Bastos</p>
+          <div class="meta">
+            <span class="tag">Accepted for Presentation</span>
+            <span class="tag">ANPEC National Meeting</span>
+            <span class="tag">2026</span>
+          </div>
+        </article>
+
+        <article class="paper">
+          <h3>Intersectional Lower-Tail Wage Rigidity in Brazil: Evidence from Census Data and Synthetic Cohorts</h3>
+          <p class="authors">with Ramon Lima Ribeiro</p>
+          <div class="meta">
+            <span class="tag">Accepted for Presentation</span>
+            <span class="tag">ANPEC Regional</span>
+            <span class="tag">2026</span>
+          </div>
+        </article>
+
+        <article class="paper">
+          <h3>Text-Based Financial Stress and Sovereign Risk in Brazil</h3>
+          <p class="authors">with Victor L. Stilita and Ramon Lima Ribeiro</p>
+          <div class="meta">
+            <span class="tag">Accepted for Presentation</span>
+            <span class="tag">Brazilian Finance Congress</span>
+            <span class="tag">2026</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="wip">
+      <div class="section-head">
+        <h2>Work in Progress</h2>
+        <p class="section-intro">Working papers and ongoing research projects.</p>
+      </div>
+
+      <div class="paper-list">
+        <article class="paper">
+          <h3>Distributional Functionals in Fixed-Effects Panels: A Weighted-Average Quantile Approach</h3>
+          <div class="meta">
+            <span class="tag">Econometrics</span>
+            <span class="tag">Panel Data</span>
+            <span class="tag">Quantile Methods</span>
+          </div>
+          <p>
+            Develops weighted-average quantile regression for fixed-effects panels when the target is an integrated
+            feature of the conditional distribution, such as expected shortfall, lower-tail welfare, inequality-sensitive
+            welfare, or distributional spread.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>Local Grocery Structure and the Incidence of Food-Cost Shocks: Evidence from Fortaleza, Brazil</h3>
+          <p class="authors">with Fabrício Carneiro Linhares</p>
+          <div class="meta">
+            <span class="tag">Urban Economics</span>
+            <span class="tag">Food Prices</span>
+          </div>
+          <p>
+            This project studies how common upstream food-cost shocks pass through to neighborhood-level grocery prices
+            in Fortaleza, asking whether pre-existing differences in local retail structure shape the incidence of those shocks.
+          </p>
+        </article>
+
+        <article class="paper">
+          <h3>Decomposing Inequality in Brazil: An Analysis of Gini Coefficient Subgroups</h3>
+          <p class="authors">with Ramon Lima Ribeiro and Felipe S. Bastos</p>
+          <div class="meta">
+            <span class="tag">Inequality Measurement</span>
+            <span class="tag">Brazil</span>
+          </div>
+          <p>
+            This project applies an exact subgroup decomposition of the Gini coefficient to Brazilian household income
+            data, separating within-group and between-group inequality across demographic and regional dimensions.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p class="section-intro">For manuscripts, research correspondence, or collaboration.</p>
+      </div>
+      <div class="about-card">
+        <p>
+          Email: <a href="mailto:pedro_oliveira@caen.ufc.br">pedro_oliveira@caen.ufc.br</a><br />
+          ORCID: <a href="https://orcid.org/0009-0007-6610-9390" target="_blank" rel="noopener">0009-0007-6610-9390</a><br />
+          CV: <a href="CV_Pedro_Igor_Oliveira.pdf" target="_blank" rel="noopener">View CV</a>
+        </p>
+        <p class="note">
+          Manuscripts and replication materials are available upon request.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © 2026 Pedro Igor Oliveira. Last updated: September 2026.
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      const button = document.getElementById('theme-toggle');
+      const savedTheme = localStorage.getItem('pedro-site-theme');
+
+      function setTheme(dark) {
+        document.body.classList.toggle('dark-mode', dark);
+        button.textContent = dark ? '☀️ Light' : '🌙 Dark';
+        button.setAttribute('aria-pressed', dark ? 'true' : 'false');
+        button.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+      }
+
+      setTheme(savedTheme === 'dark');
+
+      button.addEventListener('click', function () {
+        const dark = !document.body.classList.contains('dark-mode');
+        setTheme(dark);
+        localStorage.setItem('pedro-site-theme', dark ? 'dark' : 'light');
+      });
+    })();
+  </script>
+</body>
+</html>
